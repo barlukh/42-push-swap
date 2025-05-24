@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_p.c                                      :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 14:04:20 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/24 12:20:55 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/24 12:30:33 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,26 @@ int	ft_putnbr_p(uintptr_t p)
 {
 	int	count;
 	int	check;
-	
+
 	if (p == 0)
-	return (ft_putstr_m("(nil)"));
+		return (ft_putstr_m("(nil)"));
 	count = 0;
 	if (p < BASE16)
 	{
 		check = ft_putstr_m("0x");
 		if (check == -1)
-		return (-1);
+			return (-1);
 		count += check;
 	}
 	if (p >= BASE16)
 	{
 		check = ft_putnbr_p(p / BASE16);
 		if (check == -1)
-		return (-1);
+			return (-1);
 		count += check;
 	}
 	if (ft_putchar_m(HEX_LCASE[p % BASE16]) == -1)
-	return (-1);
+		return (-1);
 	count++;
 	return (count);
 }
