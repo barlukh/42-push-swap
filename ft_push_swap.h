@@ -5,26 +5,53 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/24 12:24:20 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/25 14:40:39 by bgazur           ###   ########.fr       */
+/*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
+/*   Updated: 2025/05/25 19:50:10 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PUSH_SWAP_H
 # define FT_PUSH_SWAP_H
 
-# include "ft_printf.h"
+# include <limits.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+# define TRUE 1
+# define FALSE 0
+# define SUCCESS 1
+# define ERROR 0
+
+typedef struct s_struct
+{
+	int	*a;
+}	t_struct;
 
 /** Converts a string to an integer
- * @param nptr String to be converted
- * @return Converted string as an int, '0' on error
+ * @param s String to be converted
+ * @return Converted string as a long long (integer type)
  */
-int	ft_atoi(const char *nptr);
+long long	ft_atoi(const char *s);
 
 /** Checks if a character is a digit
  * @param c Character to check, passed as an int
- * @return 1 on True, 0 on False
+ * @return 1 on TRUE, 0 on FALSE
  */
-int	ft_isdigit(int c);
+int			ft_isdigit(int c);
+
+/** Checks if there are no duplicates in the passed stack
+ * @param argc Argument count
+ * @param stack Struct containing stacks
+ * @return 1 on SUCCESS, 0 on ERROR
+ */
+int			ft_check_duplicates(int argc, t_struct *stack);
+
+/** Checks if passed arguments are valid integers
+ * @param argc Argument count
+ * @param argv Argument vector
+ * @param stack Struct containing stacks
+ * @return 1 on SUCCESS, 0 on ERROR
+ */
+int			ft_check_integers(int argc, char **argv, t_struct *stack);
 
 #endif

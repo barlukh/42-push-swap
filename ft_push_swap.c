@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:21:39 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/25 14:38:25 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/25 19:49:20 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,27 @@
 
 int	main(int argc, char **argv)
 {
-	int	i;
-	int	j;
-	int	n;
+	t_struct	stack;
 
 	if (argc == 1)
 		return (0);
-	i = 1;
-	j = 0;
-	while (i < argc)
+	stack.a = malloc(sizeof(int) * (argc - 1));
+	if (!stack.a)
 	{
-		while (argv[i][j] != '\0')
-		{
-			if (!ft_isdigit(argv[i][j]))
-				return (ft_printf("Error"));
-			j++;
-		}
-		n = ft_atoi(argv[i]);
-		ft_printf("%d\n", n);
-		i++;
+		write(2, "Error\n", 6);
+		return (0);
+	}
+	if (ft_check_integers(argc, argv, &stack) == ERROR)
+	{
+		write(2, "Error\n", 6);
+		free(stack.a);
+		return (0);
+	}
+	if (ft_check_duplicates(argc, &stack) == ERROR)
+	{
+		write(2, "Error\n", 6);
+		free(stack.a);
+		return (0);
 	}
 	return (0);
 }
