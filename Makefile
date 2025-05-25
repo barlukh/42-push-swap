@@ -6,7 +6,7 @@
 #    By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/23 11:21:03 by bgazur            #+#    #+#              #
-#    Updated: 2025/05/24 12:28:32 by bgazur           ###   ########.fr        #
+#    Updated: 2025/05/25 14:01:49 by bgazur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 OBJS = $(SRCS:.c=.o)
-SRCS =	ft_printf_utils.c \
+SRCS =	ft_atoi.c \
+		ft_printf_utils.c \
 		ft_printf.c \
 		ft_push_swap.c \
 
