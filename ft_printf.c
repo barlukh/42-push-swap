@@ -6,11 +6,11 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 08:57:20 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/14 15:00:31 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/25 17:02:59 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_push_swap.h"
 
 static void	ft_parse_index(const char *s, size_t *i, int *count, va_list *args);
 static int	ft_parse_format_specifier(char c, va_list *args);
@@ -30,7 +30,10 @@ int	ft_printf(const char *s, ...)
 	{
 		ft_parse_index(s, &i, &count, &args);
 		if (count == -1)
-			return (va_end(args), -1);
+		{
+			va_end(args);
+			return (-1);
+		}
 	}
 	va_end(args);
 	return (count);
