@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 14:43:55 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 14:22:26 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 17:16:14 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,18 +84,26 @@ int	ft_check_duplicates(t_struct *stack)
 	return (SUCCESS);
 }
 
-int	ft_errors(int error, char **argv, t_struct stack)
+int	ft_exit(int error, char **argv, t_struct stack)
 {
-	if (error == FREEARG)
-		free(argv);
-	else if (error == FREESTCK)
-		free(stack.a);
-	else
+	size_t	i;
+
+	i = 0;
+	if (error == ERRFREEARG || error == ERRFREEARGSTCK || error == FREEARGSTCK)
 	{
+		while (argv[i] != NULL)
+		{
+			free(argv[i]);
+			i++;
+		}
 		free(argv);
+	}
+	if (error == ERRFREESTCK || error == FREESTCK
+		|| error == ERRFREEARGSTCK || error == FREEARGSTCK)
+	{
 		free(stack.a);
 	}
-	if (error != NOFREE)
+	if (error != FREEARGSTCK && error != FREESTCK)
 		write(2, "Error\n", 6);
 	return (0);
 }
