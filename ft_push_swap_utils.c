@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 14:43:55 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/25 20:07:12 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 07:24:41 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,34 +35,7 @@ long long	ft_atoi(const char *s)
 	return (n);
 }
 
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (TRUE);
-	return (FALSE);
-}
-
-int	ft_check_duplicates(int argc, t_struct *stack)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < argc - 1)
-	{
-		j = i + 1;
-		while (j < argc - 1)
-		{
-			if (stack->a[i] == stack->a[j])
-				return (ERROR);
-			j++;
-		}
-		i++;
-	}
-	return (SUCCESS);
-}
-
-int	ft_check_integers(int argc, char **argv, t_struct *stack)
+int	ft_check_arguments(int argc, char **argv, t_struct *stack)
 {
 	int			i;
 	int			j;
@@ -87,4 +60,31 @@ int	ft_check_integers(int argc, char **argv, t_struct *stack)
 		i++;
 	}
 	return (SUCCESS);
+}
+
+int	ft_check_duplicates(int argc, t_struct *stack)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < argc - 1)
+	{
+		j = i + 1;
+		while (j < argc - 1)
+		{
+			if (stack->a[i] == stack->a[j])
+				return (ERROR);
+			j++;
+		}
+		i++;
+	}
+	return (SUCCESS);
+}
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (TRUE);
+	return (FALSE);
 }

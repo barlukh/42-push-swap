@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/25 19:50:10 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 07:24:17 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,13 @@ typedef struct s_struct
  */
 long long	ft_atoi(const char *s);
 
-/** Checks if a character is a digit
- * @param c Character to check, passed as an int
- * @return 1 on TRUE, 0 on FALSE
+/** Checks if passed arguments are valid integers
+ * @param argc Argument count
+ * @param argv Argument vector
+ * @param stack Struct containing stacks
+ * @return 1 on SUCCESS, 0 on ERROR
  */
-int			ft_isdigit(int c);
+int			ft_check_arguments(int argc, char **argv, t_struct *stack);
 
 /** Checks if there are no duplicates in the passed stack
  * @param argc Argument count
@@ -46,12 +48,10 @@ int			ft_isdigit(int c);
  */
 int			ft_check_duplicates(int argc, t_struct *stack);
 
-/** Checks if passed arguments are valid integers
- * @param argc Argument count
- * @param argv Argument vector
- * @param stack Struct containing stacks
- * @return 1 on SUCCESS, 0 on ERROR
+/** Checks if a character is a digit
+ * @param c Character to check, passed as an int
+ * @return 1 on TRUE, 0 on FALSE
  */
-int			ft_check_integers(int argc, char **argv, t_struct *stack);
+int			ft_isdigit(int c);
 
 #endif
