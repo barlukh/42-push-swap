@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 14:43:55 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 07:24:41 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 07:51:57 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ long long	ft_atoi(const char *s)
 	return (n);
 }
 
-int	ft_check_arguments(int argc, char **argv, t_struct *stack)
+int	ft_check_arguments(char **argv, t_struct *stack)
 {
-	int			i;
-	int			j;
+	size_t		i;
+	size_t		j;
 	long long	n;
 
 	i = 1;
-	while (i < argc)
+	while (i <= stack->size)
 	{
 		if (argv[i] == NULL || argv[i][0] == '\0')
 			return (ERROR);
@@ -62,16 +62,16 @@ int	ft_check_arguments(int argc, char **argv, t_struct *stack)
 	return (SUCCESS);
 }
 
-int	ft_check_duplicates(int argc, t_struct *stack)
+int	ft_check_duplicates(t_struct *stack)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while (i < argc - 1)
+	while (i < stack->size)
 	{
 		j = i + 1;
-		while (j < argc - 1)
+		while (j < stack->size)
 		{
 			if (stack->a[i] == stack->a[j])
 				return (ERROR);

@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 07:24:17 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 07:50:58 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 
 typedef struct s_struct
 {
-	int	*a;
+	int		*a;
+	size_t	size;
 }	t_struct;
 
 /** Converts a string to an integer
@@ -34,19 +35,17 @@ typedef struct s_struct
 long long	ft_atoi(const char *s);
 
 /** Checks if passed arguments are valid integers
- * @param argc Argument count
  * @param argv Argument vector
- * @param stack Struct containing stacks
+ * @param stack Struct containing stack variables
  * @return 1 on SUCCESS, 0 on ERROR
  */
-int			ft_check_arguments(int argc, char **argv, t_struct *stack);
+int			ft_check_arguments(char **argv, t_struct *stack);
 
 /** Checks if there are no duplicates in the passed stack
- * @param argc Argument count
- * @param stack Struct containing stacks
+ * @param stack Struct containing stack variables
  * @return 1 on SUCCESS, 0 on ERROR
  */
-int			ft_check_duplicates(int argc, t_struct *stack);
+int			ft_check_duplicates(t_struct *stack);
 
 /** Checks if a character is a digit
  * @param c Character to check, passed as an int
