@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 17:24:31 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 19:54:18 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 20:03:05 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	arg.offset = TRUE;
 	if (ft_parse_input(&arg, &stack) == ERROR)
 		return (0);
-	
+	// REMEMBER TO REMOVE BEFORE SUBMISSION!
 	size_t i = 0;
 	while (i < stack.size)
 	{

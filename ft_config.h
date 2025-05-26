@@ -6,12 +6,12 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 19:54:37 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 20:00:52 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PUSH_SWAP_H
-# define FT_PUSH_SWAP_H
+#ifndef FT_CONFIG_H
+# define FT_CONFIG_H
 
 # include <limits.h>
 # include <stdlib.h>

@@ -6,15 +6,15 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:38:11 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 19:59:54 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 20:02:22 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_config.h"
 
 static size_t	ft_word_count(char const *s, char c);
-static char	**ft_allocate_array(char const *s, char c, char **arr);
-static void	ft_free_array(char **arr, size_t i);
+static char		**ft_allocate_array(char const *s, char c, char **arr);
+static void		ft_free_array(char **arr, size_t i);
 
 char	**ft_split(char const *s, char c, t_stacks *stack)
 {
