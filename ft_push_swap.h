@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 15:04:15 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 19:00:28 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,18 @@
 # define FREESTCK 4
 # define FREEARGSTCK 5
 
-typedef struct s_struct
+typedef struct s_args
+{
+	int		argc;
+	char	**argv;
+	int		offset;
+}	t_args;
+
+typedef struct s_stacks
 {
 	int		*a;
 	size_t	size;
-}	t_struct;
+}	t_stacks;
 
 /** Converts a string to an integer
  * @param s String to be converted
@@ -46,13 +53,13 @@ long long	ft_atoi(const char *s);
  * @param stack Struct containing stack variables
  * @return 1 on SUCCESS, 0 on ERROR
  */
-int			ft_check_arguments(char **argv, t_struct *stack);
+int			ft_check_arguments(char **argv, t_stacks *stack);
 
 /** Checks if there are no duplicates in the passed stack
  * @param stack Struct containing stack variables
  * @return 1 on SUCCESS, 0 on ERROR
  */
-int			ft_check_duplicates(t_struct *stack);
+int			ft_check_duplicates(t_stacks *stack);
 
 /** Handles different error calls
  * @param error Error number
@@ -60,7 +67,7 @@ int			ft_check_duplicates(t_struct *stack);
  * @param stack Struct containing stack variables
  * @return 0 (zero) 
  */
-int			ft_exit(int error, char **argv, t_struct stack);
+int			ft_end(int error, char **argv, t_stacks *stack);
 
 /** Checks if a character is a digit
  * @param c Character to check, passed as an int
@@ -76,12 +83,14 @@ int			ft_isdigit(int c);
  */
 void		*ft_memcpy(void *dest, const void *src, size_t n);
 
+int			ft_parse_input(t_args *arg, t_stacks *stack);
+
 /** Splits a string according to a specified delimiter
  * @param s String to split
  * @param c Delimiter
  * @return Array of new strings, 'NULL' if the allocation fails
  */
-char		**ft_split(char const *s, char c, t_struct *stack);
+char		**ft_split(char const *s, char c, t_stacks *stack);
 
 /** Scans a string for the first instance of 'c'
  * @param s String to search

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_swap_utils.c                               :+:      :+:    :+:   */
+/*   ft_parse_input_utils.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 14:43:55 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 17:16:14 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 18:59:34 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ long long	ft_atoi(const char *s)
 	return (n);
 }
 
-int	ft_check_arguments(char **argv, t_struct *stack)
+int	ft_check_arguments(char **argv, t_stacks *stack)
 {
 	size_t		i;
 	size_t		j;
@@ -64,7 +64,7 @@ int	ft_check_arguments(char **argv, t_struct *stack)
 	return (SUCCESS);
 }
 
-int	ft_check_duplicates(t_struct *stack)
+int	ft_check_duplicates(t_stacks *stack)
 {
 	size_t	i;
 	size_t	j;
@@ -84,7 +84,7 @@ int	ft_check_duplicates(t_struct *stack)
 	return (SUCCESS);
 }
 
-int	ft_exit(int error, char **argv, t_struct stack)
+int	ft_end(int error, char **argv, t_stacks *stack)
 {
 	size_t	i;
 
@@ -101,11 +101,11 @@ int	ft_exit(int error, char **argv, t_struct stack)
 	if (error == ERRFREESTCK || error == FREESTCK
 		|| error == ERRFREEARGSTCK || error == FREEARGSTCK)
 	{
-		free(stack.a);
+		free(stack->a);
 	}
 	if (error != FREEARGSTCK && error != FREESTCK)
 		write(2, "Error\n", 6);
-	return (0);
+	return (ERROR);
 }
 
 int	ft_isdigit(int c)
