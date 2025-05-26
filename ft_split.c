@@ -6,11 +6,34 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:38:11 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 19:52:55 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 19:59:54 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_config.h"
+
+static size_t	ft_word_count(char const *s, char c);
+static char	**ft_allocate_array(char const *s, char c, char **arr);
+static void	ft_free_array(char **arr, size_t i);
+
+char	**ft_split(char const *s, char c, t_stacks *stack)
+{
+	size_t	word_count;
+	char	**arr;
+
+	if (!s)
+		return (NULL);
+	word_count = ft_word_count(s, c);
+	stack->size = word_count;
+	arr = malloc(sizeof(char *) * (word_count + 1));
+	if (!arr)
+		return (NULL);
+	arr = ft_allocate_array(s, c, arr);
+	if (!arr)
+		return (NULL);
+	arr[word_count] = NULL;
+	return (arr);
+}
 
 // Counts how many words to split the string into
 static size_t	ft_word_count(char const *s, char c)
@@ -30,15 +53,6 @@ static size_t	ft_word_count(char const *s, char c)
 		}
 	}
 	return (count);
-}
-
-// Frees all arrays
-static void	ft_free_array(char **arr, size_t i)
-{
-	while (i > 0)
-		free(arr[i--]);
-	free(arr[i]);
-	free(arr);
 }
 
 // Allocates each single word into its array
@@ -71,21 +85,11 @@ static char	**ft_allocate_array(char const *s, char c, char **arr)
 	return (arr);
 }
 
-char	**ft_split(char const *s, char c, t_stacks *stack)
+// Frees all arrays
+static void	ft_free_array(char **arr, size_t i)
 {
-	size_t	word_count;
-	char	**arr;
-
-	if (!s)
-		return (NULL);
-	word_count = ft_word_count(s, c);
-	stack->size = word_count;
-	arr = malloc(sizeof(char *) * (word_count + 1));
-	if (!arr)
-		return (NULL);
-	arr = ft_allocate_array(s, c, arr);
-	if (!arr)
-		return (NULL);
-	arr[word_count] = NULL;
-	return (arr);
+	while (i > 0)
+		free(arr[i--]);
+	free(arr[i]);
+	free(arr);
 }
