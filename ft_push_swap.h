@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 19:34:33 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 19:38:52 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int			ft_check_duplicates(t_stacks *stack);
  * @param error Error type
  * @param argv Argument vector
  * @param stack Struct containing stack variables
- * @return 0 (zero) 
+ * @return 0 (zero)
  */
 int			ft_end(int error, char **argv, t_stacks *stack);
 

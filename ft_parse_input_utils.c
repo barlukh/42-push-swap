@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 14:43:55 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 18:59:34 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 19:36:44 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int	ft_end(int error, char **argv, t_stacks *stack)
 	}
 	if (error != FREEARGSTCK && error != FREESTCK)
 		write(2, "Error\n", 6);
-	return (ERROR);
+	return (0);
 }
 
 int	ft_isdigit(int c)
