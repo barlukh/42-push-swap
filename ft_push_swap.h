@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 13:31:40 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 14:17:35 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 # define FALSE 0
 # define SUCCESS 1
 # define ERROR 0
+# define NOFREE 0
+# define FREEARG 1
+# define FREESTCK 2
+# define FREEARGSTCK 3
 
 typedef struct s_struct
 {
@@ -47,6 +51,14 @@ int			ft_check_arguments(char **argv, t_struct *stack);
  * @return 1 on SUCCESS, 0 on ERROR
  */
 int			ft_check_duplicates(t_struct *stack);
+
+/** Handles different error calls
+ * @param error Error number
+ * @param argv Argument vector
+ * @param stack Struct containing stack variables
+ * @return 0 (zero) 
+ */
+int			ft_errors(int error, char **argv, t_struct stack);
 
 /** Checks if a character is a digit
  * @param c Character to check, passed as an int

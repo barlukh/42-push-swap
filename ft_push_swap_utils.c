@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 14:43:55 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 13:31:25 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 14:22:26 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,22 @@ int	ft_check_duplicates(t_struct *stack)
 		i++;
 	}
 	return (SUCCESS);
+}
+
+int	ft_errors(int error, char **argv, t_struct stack)
+{
+	if (error == FREEARG)
+		free(argv);
+	else if (error == FREESTCK)
+		free(stack.a);
+	else
+	{
+		free(argv);
+		free(stack.a);
+	}
+	if (error != NOFREE)
+		write(2, "Error\n", 6);
+	return (0);
 }
 
 int	ft_isdigit(int c)
