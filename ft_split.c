@@ -6,11 +6,11 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:38:11 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 19:00:42 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 19:52:55 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "ft_config.h"
 
 // Counts how many words to split the string into
 static size_t	ft_word_count(char const *s, char c)

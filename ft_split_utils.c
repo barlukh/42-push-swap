@@ -6,11 +6,11 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 08:44:30 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 08:45:54 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 19:52:50 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "ft_config.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_swap.h                                     :+:      :+:    :+:   */
+/*   ft_config.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 19:38:52 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 19:54:37 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,6 @@ int			ft_isdigit(int c);
  * @return Pointer to the destination memory area
  */
 void		*ft_memcpy(void *dest, const void *src, size_t n);
-
-/** Parses input arguments and checks for errors
- * @param arg Struct containing argument variables
- * @param stack Struct containing stack variables
- * @return 1 on SUCCESS, 0 on ERROR
- */
-int			ft_parse_input(t_args *arg, t_stacks *stack);
 
 /** Splits a string according to a specified delimiter
  * @param s String to split
