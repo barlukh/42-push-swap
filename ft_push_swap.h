@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 19:00:28 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/26 19:34:33 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int			ft_check_arguments(char **argv, t_stacks *stack);
 int			ft_check_duplicates(t_stacks *stack);
 
 /** Handles different error calls
- * @param error Error number
+ * @param error Error type
  * @param argv Argument vector
  * @param stack Struct containing stack variables
  * @return 0 (zero) 
@@ -83,11 +83,17 @@ int			ft_isdigit(int c);
  */
 void		*ft_memcpy(void *dest, const void *src, size_t n);
 
+/** Parses input arguments and checks for errors
+ * @param arg Struct containing argument variables
+ * @param stack Struct containing stack variables
+ * @return 1 on SUCCESS, 0 on ERROR
+ */
 int			ft_parse_input(t_args *arg, t_stacks *stack);
 
 /** Splits a string according to a specified delimiter
  * @param s String to split
  * @param c Delimiter
+ * @param stack Struct containing stack variables
  * @return Array of new strings, 'NULL' if the allocation fails
  */
 char		**ft_split(char const *s, char c, t_stacks *stack);
