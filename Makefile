@@ -6,7 +6,7 @@
 #    By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/23 11:21:03 by bgazur            #+#    #+#              #
-#    Updated: 2025/05/25 17:20:41 by bgazur           ###   ########.fr        #
+#    Updated: 2025/05/26 09:48:33 by bgazur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ RM = rm -f
 OBJS = $(SRCS:.c=.o)
 SRCS =	ft_push_swap_utils.c \
 		ft_push_swap.c \
+		ft_split_utils.c \
+		ft_split.c
 
 all: $(NAME)
 
