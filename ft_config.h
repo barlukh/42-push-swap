@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/28 18:40:04 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/28 19:19:41 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_stacks
 	int		*a;
 	int		*b;
 	int		temp;
+	size_t	i;
 	size_t	size_a;
 	size_t	size_b;
 }	t_stacks;
