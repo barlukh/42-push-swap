@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 14:43:55 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 19:52:47 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/28 09:31:04 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,23 +89,27 @@ int	ft_end(int error, char **argv, t_stacks *stack)
 	size_t	i;
 
 	i = 0;
-	if (error == ERRFREEARG || error == ERRFREEARGSTCK || error == FREEARGSTCK)
+	if (error == FREE_ARG_AB || error == ERRFREE_ARG
+		|| error == ERRFREE_ARG_A || error == ERRFREE_ARG_AB)
 	{
 		while (argv[i] != NULL)
-		{
-			free(argv[i]);
-			i++;
-		}
+			free(argv[i++]);
 		free(argv);
 	}
-	if (error == ERRFREESTCK || error == FREESTCK
-		|| error == ERRFREEARGSTCK || error == FREEARGSTCK)
+	if (error == ERRFREE_A || error == ERRFREE_ARG_A)
+		free(stack->a);
+	if (error == FREE_AB || error == FREE_ARG_AB
+		|| error == ERRFREE_AB || error == ERRFREE_ARG_AB)
 	{
 		free(stack->a);
+		free(stack->b);
 	}
-	if (error != FREEARGSTCK && error != FREESTCK)
+	if (error != FREE_AB && error != FREE_ARG_AB)
+	{
 		write(2, "Error\n", 6);
-	return (0);
+		return (ERROR);
+	}
+	return (SUCCESS);
 }
 
 int	ft_isdigit(int c)
