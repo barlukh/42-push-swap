@@ -6,34 +6,15 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 14:43:55 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/28 15:51:08 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/28 16:46:45 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_config.h"
 
-long long	ft_atoi(const char *s)
-{
-	size_t		i;
-	int			sign;
-	long long	n;
-
-	i = 0;
-	sign = 1;
-	if (s[i] == '-')
-	{
-		sign *= -1;
-		i++;
-	}
-	n = 0;
-	while (s[i] != '\0')
-	{
-		n = n * 10 + (s[i] - '0');
-		i++;
-	}
-	n = n * sign;
-	return (n);
-}
+static long long	ft_atoi(const char *s);
+static int	ft_check_duplicates(t_stacks *stack);
+static int	ft_isdigit(int c);
 
 int	ft_check_arguments(char **argv, t_stacks *stack)
 {
@@ -64,7 +45,60 @@ int	ft_check_arguments(char **argv, t_stacks *stack)
 	return (SUCCESS);
 }
 
-int	ft_check_duplicates(t_stacks *stack)
+int	ft_end(int error, char **argv, t_stacks *stack)
+{
+	size_t	i;
+	
+	i = 0;
+	if (error == FREE_ARG_AB || error == ERRFREE_ARG
+		|| error == ERRFREE_ARG_A || error == ERRFREE_ARG_AB)
+		{
+		while (argv[i] != NULL)
+		free(argv[i++]);
+		free(argv);
+	}
+	if (error == ERRFREE_A || error == ERRFREE_ARG_A)
+	free(stack->a);
+	if (error == FREE_AB || error == FREE_ARG_AB
+		|| error == ERRFREE_AB || error == ERRFREE_ARG_AB)
+		{
+			free(stack->a);
+			free(stack->b);
+		}
+		if (error != FREE_AB && error != FREE_ARG_AB)
+		{
+			write(2, "Error\n", 6);
+			return (ERROR);
+		}
+	return (SUCCESS);
+}
+
+// Converts a string to an integer
+static long long	ft_atoi(const char *s)
+{
+	size_t		i;
+	int			sign;
+	long long	n;
+
+	i = 0;
+	sign = 1;
+	if (s[i] == '-')
+	{
+		sign *= -1;
+		i++;
+	}
+	n = 0;
+	while (s[i] != '\0')
+	{
+		n = n * 10 + (s[i] - '0');
+		i++;
+	}
+	n = n * sign;
+	return (n);
+}
+
+// Checks if there are no duplicates in the passed stack
+static int	ft_check_duplicates(t_stacks *stack)
 {
 	size_t	i;
 	size_t	j;
@@ -83,36 +117,9 @@ int	ft_check_duplicates(t_stacks *stack)
 	}
 	return (SUCCESS);
 }
-
-int	ft_end(int error, char **argv, t_stacks *stack)
-{
-	size_t	i;
-
-	i = 0;
-	if (error == FREE_ARG_AB || error == ERRFREE_ARG
-		|| error == ERRFREE_ARG_A || error == ERRFREE_ARG_AB)
-	{
-		while (argv[i] != NULL)
-			free(argv[i++]);
-		free(argv);
-	}
-	if (error == ERRFREE_A || error == ERRFREE_ARG_A)
-		free(stack->a);
-	if (error == FREE_AB || error == FREE_ARG_AB
-		|| error == ERRFREE_AB || error == ERRFREE_ARG_AB)
-	{
-		free(stack->a);
-		free(stack->b);
-	}
-	if (error != FREE_AB && error != FREE_ARG_AB)
-	{
-		write(2, "Error\n", 6);
-		return (ERROR);
-	}
-	return (SUCCESS);
-}
-
-int	ft_isdigit(int c)
+	
+// Checks if a character is a digit
+static int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (TRUE);

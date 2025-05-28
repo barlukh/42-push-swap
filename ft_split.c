@@ -6,15 +6,15 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:38:11 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/28 15:51:08 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/28 16:40:14 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_config.h"
 
-static size_t	ft_word_count(char const *s, char c);
 static char		**ft_allocate_array(char const *s, char c, char **arr);
 static void		ft_free_array(char **arr, size_t i);
+static size_t	ft_word_count(char const *s, char c);
 
 char	**ft_split(char const *s, char c, t_stacks *stack)
 {
@@ -35,6 +35,45 @@ char	**ft_split(char const *s, char c, t_stacks *stack)
 	return (arr);
 }
 
+// Allocates each single word into its array
+static char	**ft_allocate_array(char const *s, char c, char **arr)
+{
+	size_t	word_len;
+	size_t	i;
+	
+	i = 0;
+	while (*s)
+	{
+		while (*s == c)
+		s++;
+		if (*s)
+		{
+			if (ft_strchr(s, c))
+			word_len = ft_strchr(s, c) - s;
+			else
+			word_len = ft_strlen(s);
+			arr[i] = ft_substr(s, 0, word_len);
+			if (!arr[i])
+			{
+				ft_free_array(arr, i);
+				return (NULL);
+			}
+			s += word_len;
+			i++;
+		}
+	}
+	return (arr);
+}
+
+// Frees all arrays
+static void	ft_free_array(char **arr, size_t i)
+{
+	while (i > 0)
+	free(arr[i--]);
+	free(arr[i]);
+	free(arr);
+}
+
 // Counts how many words to split the string into
 static size_t	ft_word_count(char const *s, char c)
 {
@@ -53,43 +92,4 @@ static size_t	ft_word_count(char const *s, char c)
 		}
 	}
 	return (count);
-}
-
-// Allocates each single word into its array
-static char	**ft_allocate_array(char const *s, char c, char **arr)
-{
-	size_t	word_len;
-	size_t	i;
-
-	i = 0;
-	while (*s)
-	{
-		while (*s == c)
-			s++;
-		if (*s)
-		{
-			if (ft_strchr(s, c))
-				word_len = ft_strchr(s, c) - s;
-			else
-				word_len = ft_strlen(s);
-			arr[i] = ft_substr(s, 0, word_len);
-			if (!arr[i])
-			{
-				ft_free_array(arr, i);
-				return (NULL);
-			}
-			s += word_len;
-			i++;
-		}
-	}
-	return (arr);
-}
-
-// Frees all arrays
-static void	ft_free_array(char **arr, size_t i)
-{
-	while (i > 0)
-		free(arr[i--]);
-	free(arr[i]);
-	free(arr);
 }
