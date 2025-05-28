@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:38:11 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/26 20:02:22 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/28 15:51:08 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	**ft_split(char const *s, char c, t_stacks *stack)
 	if (!s)
 		return (NULL);
 	word_count = ft_word_count(s, c);
-	stack->size = word_count;
+	stack->size_a = word_count;
 	arr = malloc(sizeof(char *) * (word_count + 1));
 	if (!arr)
 		return (NULL);

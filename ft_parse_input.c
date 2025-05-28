@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 09:38:02 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/28 09:42:06 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/28 15:53:34 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_parse_input(t_args *arg, t_stacks *stack)
 			return (ft_end(ERR_MSG, arg->argv, stack));
 	}
 	else
-		stack->size = arg->argc - 1;
+		stack->size_a = arg->argc - 1;
 	if (ft_parse_input_allocate(arg, stack) == ERROR)
 		return (ERROR);
 	return (SUCCESS);
@@ -35,20 +35,21 @@ int	ft_parse_input(t_args *arg, t_stacks *stack)
 // Allocates arrays for stacks and checks input arguments for errors
 static int	ft_parse_input_allocate(t_args *arg, t_stacks *stack)
 {
-	stack->a = malloc(sizeof(int) * (stack->size));
+	stack->a = malloc(sizeof(int) * (stack->size_a));
 	if (!stack->a)
 	{
 		if (arg->offset == TRUE)
 			return (ft_end(ERR_MSG, arg->argv, stack));
 		return (ft_end(ERRFREE_ARG, arg->argv, stack));
 	}
-	stack->b = malloc(sizeof(int) * (stack->size));
+	stack->b = malloc(sizeof(int) * (stack->size_a));
 	if (!stack->b)
 	{
 		if (arg->offset == TRUE)
 			return (ft_end(ERRFREE_A, arg->argv, stack));
 		return (ft_end(ERRFREE_ARG_A, arg->argv, stack));
 	}
+	stack->size_b = 0;
 	if (ft_check_arguments(arg->argv + arg->offset, stack) == ERROR)
 	{
 		if (arg->offset == TRUE)

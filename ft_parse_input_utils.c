@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 14:43:55 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/28 09:31:04 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/28 15:51:08 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_check_arguments(char **argv, t_stacks *stack)
 	long long	n;
 
 	i = 0;
-	while (i < stack->size)
+	while (i < stack->size_a)
 	{
 		if (argv[i] == NULL || argv[i][0] == '\0')
 			return (ERROR);
@@ -70,10 +70,10 @@ int	ft_check_duplicates(t_stacks *stack)
 	size_t	j;
 
 	i = 0;
-	while (i < stack->size)
+	while (i < stack->size_a)
 	{
 		j = i + 1;
-		while (j < stack->size)
+		while (j < stack->size_a)
 		{
 			if (stack->a[i] == stack->a[j])
 				return (ERROR);
