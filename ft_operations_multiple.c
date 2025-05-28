@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:59:27 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/28 18:41:19 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/28 22:07:23 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,55 @@
 
 int	ft_ops_multiple_reverse(t_stacks *stack)
 {
+	if (stack->size_a != 0)
+	{
+		stack->i = 0;
+		while (stack->i < stack->size_a - 1)
+		{
+			stack->temp = stack->a[0];
+			stack->a[0] = stack->a[stack->i + 1];
+			stack->a[stack->i + 1] = stack->temp;
+			stack->i++;
+		}
+	}
+	if (stack->size_b != 0)
+	{
+		stack->i = 0;
+		while (stack->i < stack->size_b - 1)
+		{
+			stack->temp = stack->b[0];
+			stack->b[0] = stack->b[stack->i + 1];
+			stack->b[stack->i + 1] = stack->temp;
+			stack->i++;
+		}
+	}
 	return (SUCCESS);
 }
 
 int	ft_ops_multiple_rotate(t_stacks *stack)
 {
+	if (stack->size_a != 0)
+	{
+		stack->i = stack->size_a - 1;
+		while (stack->i > 0)
+		{
+			stack->temp = stack->a[stack->size_a - 1];
+			stack->a[stack->size_a - 1] = stack->a[stack->i - 1];
+			stack->a[stack->i - 1] = stack->temp;
+			stack->i--;
+		}
+	}
+	if (stack->size_b != 0)
+	{
+		stack->i = stack->size_b - 1;
+		while (stack->i < stack->size_b - 1)
+		{
+			stack->temp = stack->b[stack->size_b - 1];
+			stack->b[stack->size_b - 1] = stack->b[stack->i - 1];
+			stack->b[stack->i - 1] = stack->temp;
+			stack->i--;
+		}
+	}
 	return (SUCCESS);
 }
 
@@ -36,4 +80,5 @@ int	ft_ops_multiple_swap(t_stacks *stack)
 		stack->b[0] = stack->b[1];
 		stack->b[1] = stack->temp;
 	}
+	return (SUCCESS);
 }

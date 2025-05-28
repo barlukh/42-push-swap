@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 17:24:31 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/28 18:28:45 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/28 22:08:27 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(int argc, char **argv)
 		return (ERROR);
 	// REMEMBER TO REMOVE BEFORE SUBMISSION!
 	size_t i = 0;
+	ft_ops_main(RA, &stack);
 	while (i < stack.size_a)
 	{
 		printf("%d\n", stack.a[i]);
