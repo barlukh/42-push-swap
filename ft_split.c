@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:38:11 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/28 16:40:14 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/28 18:41:57 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,18 @@ static char	**ft_allocate_array(char const *s, char c, char **arr)
 {
 	size_t	word_len;
 	size_t	i;
-	
+
 	i = 0;
 	while (*s)
 	{
 		while (*s == c)
-		s++;
+			s++;
 		if (*s)
 		{
 			if (ft_strchr(s, c))
-			word_len = ft_strchr(s, c) - s;
+				word_len = ft_strchr(s, c) - s;
 			else
-			word_len = ft_strlen(s);
+				word_len = ft_strlen(s);
 			arr[i] = ft_substr(s, 0, word_len);
 			if (!arr[i])
 			{
@@ -69,7 +69,7 @@ static char	**ft_allocate_array(char const *s, char c, char **arr)
 static void	ft_free_array(char **arr, size_t i)
 {
 	while (i > 0)
-	free(arr[i--]);
+		free(arr[i--]);
 	free(arr[i]);
 	free(arr);
 }

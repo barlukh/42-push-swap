@@ -6,18 +6,18 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:59:27 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/28 18:29:37 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/28 18:41:19 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_config.h"
 
-int ft_ops_multiple_reverse(t_stacks *stack)
+int	ft_ops_multiple_reverse(t_stacks *stack)
 {
 	return (SUCCESS);
 }
 
-int ft_ops_multiple_rotate(t_stacks *stack)
+int	ft_ops_multiple_rotate(t_stacks *stack)
 {
 	return (SUCCESS);
 }

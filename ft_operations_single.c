@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 18:00:00 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/28 18:19:30 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/28 18:41:07 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_ops_single_push(int operation, t_stacks *stack)
 	return (SUCCESS);
 }
 
-int ft_ops_single_reverse(int operation, t_stacks *stack)
+int	ft_ops_single_reverse(int operation, t_stacks *stack)
 {
 	return (SUCCESS);
 }
