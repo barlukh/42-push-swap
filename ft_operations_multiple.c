@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:59:27 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/29 10:40:24 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/29 11:47:29 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_ops_multiple_reverse(t_stacks *stack)
 		}
 		stack->b[0] = stack->temp;
 	}
+	write(1, "rrr\n", 4);
 }
 
 void	ft_ops_multiple_rotate(t_stacks *stack)
@@ -62,6 +63,7 @@ void	ft_ops_multiple_rotate(t_stacks *stack)
 		}
 		stack->b[stack->size_b - 1] = stack->temp;
 	}
+	write(1, "rr\n", 3);
 }
 
 void	ft_ops_multiple_swap(t_stacks *stack)
@@ -78,4 +80,5 @@ void	ft_ops_multiple_swap(t_stacks *stack)
 		stack->b[0] = stack->b[1];
 		stack->b[1] = stack->temp;
 	}
+	write(1, "ss\n", 3);
 }

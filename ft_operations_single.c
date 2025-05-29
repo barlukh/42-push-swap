@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 18:00:00 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/29 10:38:48 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/29 11:46:27 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void    ft_ops_single_push_a(t_stacks *stack)
 		}
 		stack->size_a++;
 		stack->size_b--;
+		write(1, "pa\n", 3);
 	}
 }
 
@@ -53,6 +54,7 @@ void    ft_ops_single_push_b(t_stacks *stack)
 		}
 		stack->size_a--;
 		stack->size_b++;
+		write(1, "pb\n", 3);
 	}
 }
 
@@ -68,6 +70,7 @@ void    ft_ops_single_reverse(int operation, t_stacks *stack)
 			stack->i--;
 		}
 		stack->a[0] = stack->temp;
+		write(1, "rra\n", 4);
 	}
 	else if (operation == RRB && stack->size_b > 1)
 	{
@@ -79,6 +82,7 @@ void    ft_ops_single_reverse(int operation, t_stacks *stack)
 			stack->i--;
 		}
 		stack->b[0] = stack->temp;
+		write(1, "rrb\n", 4);
 	}
 }
 
@@ -94,6 +98,7 @@ void    ft_ops_single_rotate(int operation, t_stacks *stack)
 			stack->i++;
 		}
 		stack->a[stack->size_a - 1] = stack->temp;
+		write(1, "ra\n", 3);
 	}
 	else if (operation == RB && stack->size_b > 1)
 	{
@@ -105,6 +110,7 @@ void    ft_ops_single_rotate(int operation, t_stacks *stack)
 			stack->i++;
 		}
 		stack->b[stack->size_b - 1] = stack->temp;
+		write(1, "rb\n", 3);
 	}
 }
 
@@ -115,11 +121,13 @@ void	ft_ops_single_swap(int operation, t_stacks *stack)
 		stack->temp = stack->a[0];
 		stack->a[0] = stack->a[1];
 		stack->a[1] = stack->temp;
+		write(1, "sa\n", 3);
 	}
 	else if (operation == SB && stack->size_b >= 2)
 	{
 		stack->temp = stack->b[0];
 		stack->b[0] = stack->b[1];
 		stack->b[1] = stack->temp;
+		write(1, "sb\n", 3);
 	}
 }
