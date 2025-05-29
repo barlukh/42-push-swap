@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/28 19:19:41 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/29 09:14:50 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,49 +78,42 @@ int		ft_end(int error, char **argv, t_stacks *stack);
 
 /** Shifts down all elements of stack 'a' and 'b' by 1
  * @param stack Struct containing stack variables
- * @return 1 on SUCCESS, 0 on ERROR
  */
-int		ft_ops_multiple_reverse(t_stacks *stack);
+void	ft_ops_multiple_reverse(t_stacks *stack);
 
 /** Shifts down up elements of stack 'a' and 'b' by 1
  * @param stack Struct containing stack variables
- * @return 1 on SUCCESS, 0 on ERROR
  */
-int		ft_ops_multiple_rotate(t_stacks *stack);
+void	ft_ops_multiple_rotate(t_stacks *stack);
 
 /** Swaps the first 2 elements at the top of stack 'a' and stack 'b'
  * @param stack Struct containing stack variables
- * @return 1 on SUCCESS, 0 on ERROR
  */
-int		ft_ops_multiple_swap(t_stacks *stack);
+void	ft_ops_multiple_swap(t_stacks *stack);
 
 /** Moves the top element from one stack to another
  * @param operation Expands to the relevant operation
  * @param stack Struct containing stack variables
- * @return 1 on SUCCESS, 0 on ERROR
  */
-int		ft_ops_single_push(int operation, t_stacks *stack);
+void	ft_ops_single_push(int operation, t_stacks *stack);
 
 /** Shifts down all elements of stack 'a' or 'b' by 1
  * @param operation Expands to the relevant operation
  * @param stack Struct containing stack variables
- * @return 1 on SUCCESS, 0 on ERROR
  */
-int		ft_ops_single_reverse(int operation, t_stacks *stack);
+void	ft_ops_single_reverse(int operation, t_stacks *stack);
 
 /** Shifts up all elements of stack 'a' or 'b' by 1
  * @param operation Expands to the relevant operation
  * @param stack Struct containing stack variables
- * @return 1 on SUCCESS, 0 on ERROR
  */
-int		ft_ops_single_rotate(int operation, t_stacks *stack);
+void	ft_ops_single_rotate(int operation, t_stacks *stack);
 
 /** Swaps the first 2 elements at the top of stack 'a' or stack 'b'
  * @param operation Expands to the relevant operation
  * @param stack Struct containing stack variables
- * @return 1 on SUCCESS, 0 on ERROR
  */
-int		ft_ops_single_swap(int operation, t_stacks *stack);
+void	ft_ops_single_swap(int operation, t_stacks *stack);
 
 /** Parses command line arguments checking for invalid input
  * @param arg Struct containing argument variables

@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 17:24:31 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/28 22:08:27 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/29 09:16:39 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,24 @@ int	main(int argc, char **argv)
 	if (ft_parse_input(&arg, &stack) == ERROR)
 		return (ERROR);
 	// REMEMBER TO REMOVE BEFORE SUBMISSION!
+	ft_ops_main(PB, &stack);
+	ft_ops_main(PB, &stack);
+	ft_ops_main(PA, &stack);
+	ft_ops_main(PA, &stack);
+
 	size_t i = 0;
-	ft_ops_main(RA, &stack);
-	while (i < stack.size_a)
+	while (i < 5)
 	{
-		printf("%d\n", stack.a[i]);
+		printf("%d  ", stack.a[i]);
+		printf("%d\n", stack.b[i]);
 		i++;
 	}
 	printf("\nsize_a: %zu", stack.size_a);
 	printf("\nsize_b: %zu\n", stack.size_b);
 	// ----------------------------------------
-	if (arg.offset == TRUE)
-		return (ft_end(FREE_AB, arg.argv, &stack));
-	return (ft_end(FREE_ARG_AB, arg.argv, &stack));
+	// if (arg.offset == TRUE)
+	// 	return (ft_end(FREE_AB, arg.argv, &stack));
+	// return (ft_end(FREE_ARG_AB, arg.argv, &stack));
 }
 
 // Calls relevant function based on the operation passed
