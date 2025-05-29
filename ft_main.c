@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 17:24:31 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/29 09:16:39 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/29 10:32:28 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,32 @@ int	main(int argc, char **argv)
 		return (ERROR);
 	// REMEMBER TO REMOVE BEFORE SUBMISSION!
 	ft_ops_main(PB, &stack);
+	// ft_ops_main(SA, &stack);
+	// ft_ops_main(SA, &stack);
 	ft_ops_main(PB, &stack);
+	// ft_ops_main(SB, &stack);
+	// ft_ops_main(SB, &stack);
+	ft_ops_main(RRR, &stack);
+	ft_ops_main(RR, &stack);
 	ft_ops_main(PA, &stack);
 	ft_ops_main(PA, &stack);
+	ft_ops_main(SS, &stack);
 
 	size_t i = 0;
-	while (i < 5)
+	while (i < stack.size_a)
 	{
 		printf("%d  ", stack.a[i]);
-		printf("%d\n", stack.b[i]);
+		if (i < stack.size_b)
+			printf("%d", stack.b[i]);
+		printf("\n");
 		i++;
 	}
 	printf("\nsize_a: %zu", stack.size_a);
 	printf("\nsize_b: %zu\n", stack.size_b);
 	// ----------------------------------------
-	// if (arg.offset == TRUE)
-	// 	return (ft_end(FREE_AB, arg.argv, &stack));
-	// return (ft_end(FREE_ARG_AB, arg.argv, &stack));
+	if (arg.offset == TRUE)
+		return (ft_end(FREE_AB, arg.argv, &stack));
+	return (ft_end(FREE_ARG_AB, arg.argv, &stack));
 }
 
 // Calls relevant function based on the operation passed
@@ -54,8 +63,10 @@ void	ft_ops_main(int operation, t_stacks *stack)
 		ft_ops_multiple_rotate(stack);
 	else if (operation == SS)
 		ft_ops_multiple_swap(stack);
-	else if (operation == PA || operation == PB)
-		ft_ops_single_push(operation, stack);
+	else if (operation == PA)
+		ft_ops_single_push_a(stack);
+	else if (operation == PB)
+		ft_ops_single_push_b(stack);
 	else if (operation == RRA || operation == RRB)
 		ft_ops_single_reverse(operation, stack);
 	else if (operation == RA || operation == RB)

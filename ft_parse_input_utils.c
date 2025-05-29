@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 14:43:55 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/28 19:51:59 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/29 09:23:57 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,27 +45,27 @@ int	ft_check_arguments(char **argv, t_stacks *stack)
 	return (SUCCESS);
 }
 
-int	ft_end(int error, char **argv, t_stacks *stack)
+int	ft_end(int end_flag, char **argv, t_stacks *stack)
 {
 	size_t	i;
 
 	i = 0;
-	if (error == FREE_ARG_AB || error == ERRFREE_ARG
-		|| error == ERRFREE_ARG_A || error == ERRFREE_ARG_AB)
+	if (end_flag == FREE_ARG_AB || end_flag == ERRFREE_ARG
+		|| end_flag == ERRFREE_ARG_A || end_flag == ERRFREE_ARG_AB)
 	{
 		while (argv[i] != NULL)
 			free(argv[i++]);
 		free(argv);
 	}
-	if (error == ERRFREE_A || error == ERRFREE_ARG_A)
+	if (end_flag == ERRFREE_A || end_flag == ERRFREE_ARG_A)
 		free(stack->a);
-	if (error == FREE_AB || error == FREE_ARG_AB
-		|| error == ERRFREE_AB || error == ERRFREE_ARG_AB)
+	if (end_flag == FREE_AB || end_flag == FREE_ARG_AB
+		|| end_flag == ERRFREE_AB || end_flag == ERRFREE_ARG_AB)
 	{
 		free(stack->a);
 		free(stack->b);
 	}
-	if (error != FREE_AB && error != FREE_ARG_AB)
+	if (end_flag != FREE_AB && end_flag != FREE_ARG_AB)
 	{
 		write(2, "Error\n", 6);
 		return (ERROR);
