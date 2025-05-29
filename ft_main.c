@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 17:24:31 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/29 10:32:28 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/29 10:42:44 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,19 @@ int	main(int argc, char **argv)
 	if (ft_parse_input(&arg, &stack) == ERROR)
 		return (ERROR);
 	// REMEMBER TO REMOVE BEFORE SUBMISSION!
+	// ft_ops_main(RA, &stack);
 	ft_ops_main(PB, &stack);
-	// ft_ops_main(SA, &stack);
-	// ft_ops_main(SA, &stack);
 	ft_ops_main(PB, &stack);
+	ft_ops_main(PB, &stack);
+	ft_ops_main(PB, &stack);
+	// ft_ops_main(PB, &stack);
 	// ft_ops_main(SB, &stack);
 	// ft_ops_main(SB, &stack);
-	ft_ops_main(RRR, &stack);
-	ft_ops_main(RR, &stack);
-	ft_ops_main(PA, &stack);
-	ft_ops_main(PA, &stack);
-	ft_ops_main(SS, &stack);
+	ft_ops_main(RRB, &stack);
+	// ft_ops_main(RR, &stack);
+	// ft_ops_main(PA, &stack);
+	// ft_ops_main(PA, &stack);
+	// ft_ops_main(SS, &stack);
 
 	size_t i = 0;
 	while (i < stack.size_a)

@@ -6,13 +6,39 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:59:27 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/29 10:30:54 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/29 10:40:24 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_config.h"
 
 void	ft_ops_multiple_reverse(t_stacks *stack)
+{
+	if (stack->size_a > 1)
+	{
+		stack->temp = stack->a[stack->size_a - 1];
+		stack->i = stack->size_a - 1;
+		while (stack->i > 0)
+		{
+			stack->a[stack->i] = stack->a[stack->i - 1];
+			stack->i--;
+		}
+		stack->a[0] = stack->temp;
+	}
+	if (stack->size_b > 1)
+	{
+		stack->temp = stack->b[stack->size_b - 1];
+		stack->i = stack->size_b - 1;
+		while (stack->i > 0)
+		{
+			stack->b[stack->i] = stack->b[stack->i - 1];
+			stack->i--;
+		}
+		stack->b[0] = stack->temp;
+	}
+}
+
+void	ft_ops_multiple_rotate(t_stacks *stack)
 {
 	if (stack->size_a > 1)
 	{
@@ -35,32 +61,6 @@ void	ft_ops_multiple_reverse(t_stacks *stack)
 			stack->i++;
 		}
 		stack->b[stack->size_b - 1] = stack->temp;
-	}
-}
-
-void	ft_ops_multiple_rotate(t_stacks *stack)
-{
-	if (stack->size_a > 1)
-	{
-		stack->temp = stack->a[stack->size_a - 1];
-		stack->i = stack->size_a - 1;
-		while (stack->i > 0)
-		{
-			stack->a[stack->i] = stack->a[stack->i - 1];
-			stack->i--;
-		}
-		stack->a[0] = stack->temp;
-	}
-	else if (stack->size_b > 1)
-	{
-		stack->temp = stack->b[stack->size_b - 1];
-		stack->i = stack->size_b - 1;
-		while (stack->i > 0)
-		{
-			stack->b[stack->i] = stack->b[stack->i - 1];
-			stack->i--;
-		}
-		stack->b[0] = stack->temp;
 	}
 }
 
