@@ -6,13 +6,13 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 18:00:00 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/29 11:46:27 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/30 10:27:41 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_config.h"
 
-void    ft_ops_single_push_a(t_stacks *stack)
+void	ft_ops_single_push_a(t_stacks *stack)
 {
 	if (stack->size_b > 0)
 	{
@@ -35,7 +35,7 @@ void    ft_ops_single_push_a(t_stacks *stack)
 	}
 }
 
-void    ft_ops_single_push_b(t_stacks *stack)
+void	ft_ops_single_push_b(t_stacks *stack)
 {
 	if (stack->size_a > 0)
 	{
@@ -58,7 +58,7 @@ void    ft_ops_single_push_b(t_stacks *stack)
 	}
 }
 
-void    ft_ops_single_reverse(int operation, t_stacks *stack)
+void	ft_ops_single_reverse(int operation, t_stacks *stack)
 {
 	if (operation == RRA && stack->size_a > 1)
 	{
@@ -86,7 +86,7 @@ void    ft_ops_single_reverse(int operation, t_stacks *stack)
 	}
 }
 
-void    ft_ops_single_rotate(int operation, t_stacks *stack)
+void	ft_ops_single_rotate(int operation, t_stacks *stack)
 {
 	if (operation == RA && stack->size_a > 1)
 	{

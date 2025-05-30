@@ -6,14 +6,30 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 08:44:30 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/28 18:43:21 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/30 09:28:52 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_config.h"
 
-static void	*ft_memcpy(void *dest, const void *src, size_t n);
 static char	*ft_strdup(const char *s);
+
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned char		*ptrd;
+	const unsigned char	*ptrs;
+	size_t				i;
+
+	ptrd = (unsigned char *)dest;
+	ptrs = (const unsigned char *)src;
+	i = 0;
+	while (i < n)
+	{
+		ptrd[i] = ptrs[i];
+		i++;
+	}
+	return (dest);
+}
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -64,24 +80,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ft_memcpy(ss, s + start_i, ss_len);
 	ss[ss_len] = '\0';
 	return (ss);
-}
-
-// Copies bytes from one memory area to another; the areas must not overlap
-static void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	unsigned char		*ptrd;
-	const unsigned char	*ptrs;
-	size_t				i;
-
-	ptrd = (unsigned char *)dest;
-	ptrs = (const unsigned char *)src;
-	i = 0;
-	while (i < n)
-	{
-		ptrd[i] = ptrs[i];
-		i++;
-	}
-	return (dest);
 }
 
 // Duplicates a string using dynamic memory allocation

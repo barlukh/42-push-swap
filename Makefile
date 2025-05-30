@@ -6,7 +6,7 @@
 #    By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/23 11:21:03 by bgazur            #+#    #+#              #
-#    Updated: 2025/05/29 12:13:13 by bgazur           ###   ########.fr        #
+#    Updated: 2025/05/30 09:35:47 by bgazur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS =	ft_main.c \
 		ft_operations_single.c \
 		ft_parse_input_utils.c \
 		ft_parse_input.c \
+		ft_sort_utils.c \
 		ft_sort.c \
 		ft_split_utils.c \
 		ft_split.c
