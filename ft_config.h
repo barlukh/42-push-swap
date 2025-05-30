@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/30 10:26:56 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/30 10:32:50 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,6 @@ int		ft_end(int end_flag, char **argv, t_stacks *stack);
  */
 void	ft_median(t_stacks *stack);
 
-/** Finds the min and max values in an array of integers
- * @param stack Struct containing stack variables
- * @return None
- */
-void	ft_min_max(t_stacks *stack);
-
 /** Copies bytes from one memory area to another; the areas must not overlap
  * @param dest Pointer to the destination memory area
  * @param src Pointer to the source memory area
@@ -99,6 +93,12 @@ void	ft_min_max(t_stacks *stack);
  * @return Pointer to the destination memory area
  */
 void	*ft_memcpy(void *dest, const void *src, size_t n);
+
+/** Finds the min and max values in an array of integers
+ * @param stack Struct containing stack variables
+ * @return None
+ */
+void	ft_min_max(t_stacks *stack);
 
 /** Calls relevant operation based on the argument passed
  * @param operation Expands to the relevant operation
