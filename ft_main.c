@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 17:24:31 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/30 10:10:09 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/30 11:30:07 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,20 @@ int	main(int argc, char **argv)
 	// ft_ops_main(PA, &stack);
 	// ft_ops_main(SS, &stack);
 
-	// size_t i = 0;
-	// while (i < stack.size_a)
-	// {
-	// 	printf("%d  ", stack.a[i]);
-	// 	// if (i < stack.size_b)
-	// 	// 	printf("%d", stack.b[i]);
-	// 	printf("\n");
-	// 	i++;
-	// }
+	size_t i = 0;
+	while (i < stack.size_a)
+	{
+		printf("%d  ", stack.a[i]);
+		if (i < stack.size_b)
+			printf("%d", stack.b[i]);
+		printf("\n");
+		i++;
+	}
 	printf("\nsize_a: %zu", stack.size_a);
 	printf("\nsize_b: %zu", stack.size_b);
 	printf("\nmin: %d", stack.min);
 	printf("\nmax: %d", stack.max);
-	printf("\nmedian: %f\n", stack.median);
+	printf("\nmedian: %d\n", stack.median);
 	// ----------------------------------------
 	if (arg.offset == TRUE)
 		return (ft_end(FREE_AB, arg.argv, &stack));

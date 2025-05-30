@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/30 10:32:50 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/30 11:43:53 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,10 @@ typedef struct s_stacks
 	int		min;
 	int		max;
 	int		temp;
-	float	median;
+	int		median;
 	size_t	i;
 	size_t	j;
+	size_t	k;
 	size_t	size_a;
 	size_t	size_b;
 }	t_stacks;

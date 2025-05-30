@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 09:17:45 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/30 10:29:45 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/30 11:18:24 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_median(t_stacks *stack)
 	}
 	if (stack->size_a % 2 == 0)
 		stack->median = (stack->b[stack->size_a / 2 - 1]
-				+ stack->b[stack->size_a / 2]) / 2.0;
+				+ stack->b[stack->size_a / 2]) / 2;
 	else
 		stack->median = stack->b[stack->size_a / 2];
 }
