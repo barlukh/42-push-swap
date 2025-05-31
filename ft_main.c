@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 17:24:31 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/30 11:30:07 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/31 19:42:15 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,34 +24,25 @@ int	main(int argc, char **argv)
 		return (ERROR);
 	ft_sort(&stack);
 	// REMEMBER TO REMOVE BEFORE SUBMISSION!
-	// ft_ops_main(SA, &stack);
-	// ft_ops_main(PB, &stack);
-	// ft_ops_main(PB, &stack);
-	// ft_ops_main(PB, &stack);
-	// ft_ops_main(RA, &stack);
-	// ft_ops_main(RB, &stack);
-	// ft_ops_main(RRA, &stack);
-	// ft_ops_main(RRB, &stack);
-	// ft_ops_main(SA, &stack);
-	// ft_ops_main(PA, &stack);
-	// ft_ops_main(PA, &stack);
-	// ft_ops_main(PA, &stack);
-	// ft_ops_main(SS, &stack);
-
 	size_t i = 0;
 	while (i < stack.size_a)
 	{
-		printf("%d  ", stack.a[i]);
-		if (i < stack.size_b)
-			printf("%d", stack.b[i]);
-		printf("\n");
+		printf("%d ", stack.a[i]);
+		i++;
+	}
+	i = 0;
+	printf("\n");
+	while (i < stack.size_b)
+	{
+		printf("%d ", stack.b[i]);
 		i++;
 	}
 	printf("\nsize_a: %zu", stack.size_a);
 	printf("\nsize_b: %zu", stack.size_b);
-	printf("\nmin: %d", stack.min);
-	printf("\nmax: %d", stack.max);
-	printf("\nmedian: %d\n", stack.median);
+	printf("\nmoves_a: %d", stack.cost_a);
+	printf("\nmoves_b: %d", stack.cost_b);
+	printf("\nlocked_a: %d", stack.locked_a);
+	printf("\nlocked_b: %d\n", stack.locked_b);
 	// ----------------------------------------
 	if (arg.offset == TRUE)
 		return (ft_end(FREE_AB, arg.argv, &stack));

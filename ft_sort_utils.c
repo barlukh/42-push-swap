@@ -6,37 +6,35 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 09:17:45 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/30 11:18:24 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/31 19:19:10 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_config.h"
 
-void	ft_median(t_stacks *stack)
+int	ft_is_sorted(t_stacks *stack)
 {
-	ft_memcpy(stack->b, stack->a, stack->size_a * sizeof(int));
-	stack->i = 0;
-	stack->j = stack->size_a - 1;
-	while (stack->j > 0)
+    stack->i = 0;
+	while (stack->i < stack->size_a - 1)
 	{
-		while (stack->i < (stack->size_a - 1))
-		{
-			if (stack->b[stack->i + 1] < stack->b[stack->i])
-			{
-				stack->temp = stack->b[stack->i];
-				stack->b[stack->i] = stack->b[stack->i + 1];
-				stack->b[stack->i + 1] = stack->temp;
-			}
-			stack->i++;
-		}
-		stack->i = 0;
-		stack->j--;
+        if (stack->a[stack->i] > stack->a[stack->i + 1])
+            return (FALSE);
+        stack->i++;
+    }
+    return (TRUE);
+}
+
+void	ft_mean(t_stacks *stack)
+{
+	stack->mean = 0;
+	stack->i = 0;
+
+	while (stack->i < stack->size_a)
+	{
+		stack->mean = stack->mean + stack->a[stack->i];
+		stack->i++;
 	}
-	if (stack->size_a % 2 == 0)
-		stack->median = (stack->b[stack->size_a / 2 - 1]
-				+ stack->b[stack->size_a / 2]) / 2;
-	else
-		stack->median = stack->b[stack->size_a / 2];
+	stack->mean = stack->mean / stack->size_a;
 }
 
 void	ft_min_max(t_stacks *stack)

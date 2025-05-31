@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/30 11:43:53 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/05/31 20:33:22 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,17 @@ typedef struct s_stacks
 {
 	int		*a;
 	int		*b;
-	int		min;
+	int		cost_a;
+	int		cost_b;
+	int		cost_total;
+	int		dir_a;
+	int		dir_b;
+	int		locked_a;
+	int		locked_b;
 	int		max;
+	int		min;
 	int		temp;
-	int		median;
+	float	mean;
 	size_t	i;
 	size_t	j;
 	size_t	k;
@@ -81,11 +88,11 @@ int		ft_check_arguments(char **argv, t_stacks *stack);
  */
 int		ft_end(int end_flag, char **argv, t_stacks *stack);
 
-/** Finds a median value in an array of integers
- * @param stack Struct containing stack variables
- * @return None
- */
-void	ft_median(t_stacks *stack);
+void	ft_cost_dir(t_stacks *stack);
+void	ft_find_best_pair(t_stacks *stack);
+int		ft_is_sorted(t_stacks *stack);
+void	ft_mean(t_stacks *stack);
+void	ft_sort_best_pair(t_stacks *stack);
 
 /** Copies bytes from one memory area to another; the areas must not overlap
  * @param dest Pointer to the destination memory area
