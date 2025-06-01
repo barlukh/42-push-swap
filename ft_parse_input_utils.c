@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 14:43:55 by bgazur            #+#    #+#             */
-/*   Updated: 2025/06/01 09:31:07 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/01 12:25:26 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	ft_check_arguments(char **argv, t_stacks *stack)
 	long long	n;
 
 	stack->i = 0;
-	stack->j = 0;
 	while (stack->i < stack->size_a)
 	{
 		if (argv[stack->i] == NULL || argv[stack->i][0] == '\0')
 			return (ERROR);
+		stack->j = 0;
 		while (argv[stack->i][stack->j] != '\0')
 		{
 			if (!ft_isdigit(argv[stack->i][stack->j])

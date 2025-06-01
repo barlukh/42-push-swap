@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 10:49:14 by bgazur            #+#    #+#             */
-/*   Updated: 2025/06/01 09:55:03 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/01 12:14:48 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_sort(t_stacks *stack)
 		else
 			ft_ops_main(RA, stack);
 	}
-	ft_min_max(stack);
+	ft_max(stack);
 	while (!ft_is_sorted(stack))
 	{
 		if (stack->a[0] > stack->a[1] && stack->a[0] != stack->max)
