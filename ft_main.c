@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 17:24:31 by bgazur            #+#    #+#             */
-/*   Updated: 2025/06/01 09:54:27 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/01 15:03:25 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ int	main(int argc, char **argv)
 	}
 	printf("\nsize_a: %zu", stack.size_a);
 	printf("\nsize_b: %zu", stack.size_b);
-	printf("\nmoves_a: %d", stack.cost_a);
-	printf("\nmoves_b: %d", stack.cost_b);
-	printf("\nlocked_a: %d", stack.locked_a);
-	printf("\nlocked_b: %d\n", stack.locked_b);
+	printf("\ncost_a: %d", stack.cost_a);
+	printf("\ncost_b: %d", stack.cost_b);
+	printf("\nlocked_a: %d", stack.locked_num_a);
+	printf("\nlocked_b: %d\n", stack.locked_num_b);
 	// ----------------------------------------
 	if (arg.offset == TRUE)
 		return (ft_end(FREE_AB, arg.argv, &stack));

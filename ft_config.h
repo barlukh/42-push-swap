@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/06/01 09:53:37 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/01 15:03:25 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,19 @@ typedef struct s_stacks
 	int		cost_a;
 	int		cost_b;
 	int		cost_total;
+	int		diff;
+	int		diff_min;
 	int		dir_a;
 	int		dir_b;
-	int		locked_a;
-	int		locked_b;
+	int		locked_num_a;
+	int		locked_num_b;
 	int		max;
 	int		temp;
 	float	mean;
 	size_t	i;
 	size_t	j;
+	size_t	locked_pos_a;
+	size_t	locked_pos_b;
 	size_t	size_a;
 	size_t	size_b;
 }	t_stacks;

@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 09:17:45 by bgazur            #+#    #+#             */
-/*   Updated: 2025/06/01 09:54:16 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/01 15:02:56 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 void	ft_cost_dir(t_stacks *stack)
 {
-	if (stack->j < (stack->size_a - stack->j))
+	if (stack->locked_pos_a < (stack->size_a - stack->locked_pos_a))
 	{
-		stack->cost_a = stack->j;
+		stack->cost_a = stack->locked_pos_a;
 		stack->dir_a = RA;
 	}
 	else
 	{
-		stack->cost_a = stack->size_a - stack->j;
+		stack->cost_a = stack->size_a - stack->locked_pos_a;
 		stack->dir_a = RRA;
 	}
-	if (stack->i < (stack->size_b - stack->i))
+	if (stack->locked_pos_b < (stack->size_b - stack->locked_pos_b))
 	{
-		stack->cost_b = stack->i;
+		stack->cost_b = stack->locked_pos_b;
 		stack->dir_b = RB;
 	}
 	else
 	{
-		stack->cost_b = stack->size_b - stack->i;
+		stack->cost_b = stack->size_b - stack->locked_pos_b;
 		stack->dir_b = RRB;
 	}
 }
