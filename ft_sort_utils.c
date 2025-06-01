@@ -6,13 +6,49 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 09:17:45 by bgazur            #+#    #+#             */
-/*   Updated: 2025/06/01 17:45:51 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/01 19:44:23 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_config.h"
 
-void	ft_cost_dir(t_stacks *stack)
+int	ft_is_sorted(t_stacks *stack)
+{
+	stack->i = 0;
+	while (stack->i < stack->size_a - 1)
+	{
+		if (stack->a[stack->i] > stack->a[stack->i + 1])
+			return (FALSE);
+		stack->i++;
+	}
+	return (TRUE);
+}
+
+void	ft_max(t_stacks *stack)
+{
+	stack->i = 0;
+	stack->max = stack->a[0];
+	while (stack->i < stack->size_a)
+	{
+		if (stack->a[stack->i] > stack->max)
+			stack->max = stack->a[stack->i];
+		stack->i++;
+	}
+}
+
+void	ft_mean(t_stacks *stack)
+{
+	stack->mean = 0;
+	stack->i = 0;
+	while (stack->i < stack->size_a)
+	{
+		stack->mean = stack->mean + stack->a[stack->i];
+		stack->i++;
+	}
+	stack->mean = stack->mean / stack->size_a;
+}
+
+void	ft_movement_cost(t_stacks *stack)
 {
 	if (stack->locked_pos_a < (stack->size_a - stack->locked_pos_a))
 	{
@@ -33,42 +69,6 @@ void	ft_cost_dir(t_stacks *stack)
 	{
 		stack->cost_b = stack->size_b - stack->locked_pos_b;
 		stack->dir_b = RRB;
-	}
-}
-
-int	ft_is_sorted(t_stacks *stack)
-{
-	stack->i = 0;
-	while (stack->i < stack->size_a - 1)
-	{
-		if (stack->a[stack->i] > stack->a[stack->i + 1])
-			return (FALSE);
-		stack->i++;
-	}
-	return (TRUE);
-}
-
-void	ft_mean(t_stacks *stack)
-{
-	stack->mean = 0;
-	stack->i = 0;
-	while (stack->i < stack->size_a)
-	{
-		stack->mean = stack->mean + stack->a[stack->i];
-		stack->i++;
-	}
-	stack->mean = stack->mean / stack->size_a;
-}
-
-void	ft_max(t_stacks *stack)
-{
-	stack->i = 0;
-	stack->max = stack->a[0];
-	while (stack->i < stack->size_a)
-	{
-		if (stack->a[stack->i] > stack->max)
-			stack->max = stack->a[stack->i];
-		stack->i++;
 	}
 }
 

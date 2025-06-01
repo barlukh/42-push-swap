@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/06/01 18:10:43 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/01 19:44:58 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h> // REMEMBER TO REMOVE BEFORE SUBMISSION!
 
 # define TRUE 1
 # define FALSE 0
@@ -84,12 +83,6 @@ typedef struct s_stacks
  */
 int		ft_check_arguments(char **argv, t_stacks *stack);
 
-/** Compares different costs of movement and sets the correct direction
- * @param stack Struct containing stack variables
- * @return None
- */
-void	ft_cost_dir(t_stacks *stack);
-
 /** Handles different error calls
  * @param end_flag Flag type
  * @param argv Argument vector
@@ -123,6 +116,12 @@ void	ft_mean(t_stacks *stack);
  * @return Pointer to the destination memory area
  */
 void	*ft_memcpy(void *dest, const void *src, size_t n);
+
+/** Compares different costs of movement and presets respective directions
+ * @param stack Struct containing stack variables
+ * @return None
+ */
+void	ft_movement_cost(t_stacks *stack);
 
 /** Calls relevant operation based on the argument passed
  * @param operation Expands to the relevant operation

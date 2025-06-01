@@ -6,13 +6,14 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 10:49:14 by bgazur            #+#    #+#             */
-/*   Updated: 2025/06/01 18:11:46 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/01 19:43:29 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_config.h"
 
 static void	ft_find_best_pair(t_stacks *stack);
+static void	ft_lock_best_pair(t_stacks *stack);
 static void	ft_sort_best_pair(t_stacks *stack);
 
 void	ft_sort(t_stacks *stack)
@@ -63,20 +64,26 @@ static void	ft_find_best_pair(t_stacks *stack)
 			}
 			stack->j++;
 		}
-		ft_cost_dir(stack);
-		if (stack->i == 0 || stack->cost_a + stack->cost_b < stack->cost_total)
-		{
-			stack->locked_num_a = stack->a[stack->locked_pos_a];
-			stack->locked_num_b = stack->b[stack->locked_pos_b];
-			stack->locked_dir_a = stack->dir_a;
-			stack->locked_dir_b = stack->dir_b;
-			stack->cost_total = stack->cost_a + stack->cost_b;
-		}
+		ft_movement_cost(stack);
+		ft_lock_best_pair(stack);
 		stack->i++;
 	}
 }
 
-// Moves the best pair of numbers into their correct position
+// Checks if the new pair of numbers is the best pair and saves its attributes
+static void	ft_lock_best_pair(t_stacks *stack)
+{
+	if (stack->i == 0 || stack->cost_a + stack->cost_b < stack->cost_total)
+	{
+		stack->cost_total = stack->cost_a + stack->cost_b;
+		stack->locked_dir_a = stack->dir_a;
+		stack->locked_dir_b = stack->dir_b;
+		stack->locked_num_a = stack->a[stack->locked_pos_a];
+		stack->locked_num_b = stack->b[stack->locked_pos_b];
+	}
+}
+
+// Moves the best pair of numbers into its correct position
 static void	ft_sort_best_pair(t_stacks *stack)
 {
 	while (stack->locked_num_a != stack->a[0]
