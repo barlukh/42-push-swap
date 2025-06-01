@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 10:49:14 by bgazur            #+#    #+#             */
-/*   Updated: 2025/06/01 15:06:11 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/01 18:11:46 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_sort(t_stacks *stack)
 		if (stack->a[0] > stack->a[1] && stack->a[0] != stack->max)
 			ft_ops_main(SA, stack);
 		else
-			ft_ops_main(RR, stack);
+			ft_ops_main(RA, stack);
 	}
 	while (stack->size_b != 0)
 	{
@@ -68,6 +68,8 @@ static void	ft_find_best_pair(t_stacks *stack)
 		{
 			stack->locked_num_a = stack->a[stack->locked_pos_a];
 			stack->locked_num_b = stack->b[stack->locked_pos_b];
+			stack->locked_dir_a = stack->dir_a;
+			stack->locked_dir_b = stack->dir_b;
 			stack->cost_total = stack->cost_a + stack->cost_b;
 		}
 		stack->i++;
@@ -83,15 +85,15 @@ static void	ft_sort_best_pair(t_stacks *stack)
 		if (stack->locked_num_a != stack->a[0]
 			&& stack->locked_num_b != stack->b[0])
 		{
-			if (stack->dir_a == RA && stack->dir_b == RB)
+			if (stack->locked_dir_a == RA && stack->locked_dir_b == RB)
 				ft_ops_main(RR, stack);
-			else if (stack->dir_a == RRA && stack->dir_b == RRB)
+			else if (stack->dir_a == RRA && stack->locked_dir_b == RRB)
 				ft_ops_main(RRR, stack);
 		}
 		if (stack->locked_num_a != stack->a[0])
-			ft_ops_main(stack->dir_a, stack);
+			ft_ops_main(stack->locked_dir_a, stack);
 		if (stack->locked_num_b != stack->b[0])
-			ft_ops_main(stack->dir_b, stack);
+			ft_ops_main(stack->locked_dir_b, stack);
 	}
 	ft_ops_main(PA, stack);
 }

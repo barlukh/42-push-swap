@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/06/01 15:03:25 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/01 18:10:43 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ typedef struct s_stacks
 	int		diff_min;
 	int		dir_a;
 	int		dir_b;
+	int		locked_dir_a;
+	int		locked_dir_b;
 	int		locked_num_a;
 	int		locked_num_b;
 	int		max;
