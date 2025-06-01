@@ -6,29 +6,52 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 09:17:45 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/31 19:19:10 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/01 09:54:16 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_config.h"
 
+void	ft_cost_dir(t_stacks *stack)
+{
+	if (stack->j < (stack->size_a - stack->j))
+	{
+		stack->cost_a = stack->j;
+		stack->dir_a = RA;
+	}
+	else
+	{
+		stack->cost_a = stack->size_a - stack->j;
+		stack->dir_a = RRA;
+	}
+	if (stack->i < (stack->size_b - stack->i))
+	{
+		stack->cost_b = stack->i;
+		stack->dir_b = RB;
+	}
+	else
+	{
+		stack->cost_b = stack->size_b - stack->i;
+		stack->dir_b = RRB;
+	}
+}
+
 int	ft_is_sorted(t_stacks *stack)
 {
-    stack->i = 0;
+	stack->i = 0;
 	while (stack->i < stack->size_a - 1)
 	{
-        if (stack->a[stack->i] > stack->a[stack->i + 1])
-            return (FALSE);
-        stack->i++;
-    }
-    return (TRUE);
+		if (stack->a[stack->i] > stack->a[stack->i + 1])
+			return (FALSE);
+		stack->i++;
+	}
+	return (TRUE);
 }
 
 void	ft_mean(t_stacks *stack)
 {
 	stack->mean = 0;
 	stack->i = 0;
-
 	while (stack->i < stack->size_a)
 	{
 		stack->mean = stack->mean + stack->a[stack->i];
@@ -37,15 +60,12 @@ void	ft_mean(t_stacks *stack)
 	stack->mean = stack->mean / stack->size_a;
 }
 
-void	ft_min_max(t_stacks *stack)
+void	ft_max(t_stacks *stack)
 {
 	stack->i = 0;
-	stack->min = stack->a[0];
 	stack->max = stack->a[0];
 	while (stack->i < stack->size_a)
 	{
-		if (stack->a[stack->i] < stack->min)
-			stack->min = stack->a[stack->i];
 		if (stack->a[stack->i] > stack->max)
 			stack->max = stack->a[stack->i];
 		stack->i++;

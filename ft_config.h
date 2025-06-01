@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/31 20:33:22 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/01 09:53:37 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,10 @@ typedef struct s_stacks
 	int		locked_a;
 	int		locked_b;
 	int		max;
-	int		min;
 	int		temp;
 	float	mean;
 	size_t	i;
 	size_t	j;
-	size_t	k;
 	size_t	size_a;
 	size_t	size_b;
 }	t_stacks;
@@ -80,6 +78,12 @@ typedef struct s_stacks
  */
 int		ft_check_arguments(char **argv, t_stacks *stack);
 
+/** Compares different costs of movement and sets the correct direction
+ * @param stack Struct containing stack variables
+ * @return None
+ */
+void	ft_cost_dir(t_stacks *stack);
+
 /** Handles different error calls
  * @param end_flag Flag type
  * @param argv Argument vector
@@ -88,11 +92,23 @@ int		ft_check_arguments(char **argv, t_stacks *stack);
  */
 int		ft_end(int end_flag, char **argv, t_stacks *stack);
 
-void	ft_cost_dir(t_stacks *stack);
-void	ft_find_best_pair(t_stacks *stack);
+/** Checks if an array of numbers is sorted in an ascending order
+ * @param stack Struct containing stack variables
+ * @return 1 on TRUE, 0 on FALSE
+ */
 int		ft_is_sorted(t_stacks *stack);
+
+/** Finds the max value in an array of numbers
+ * @param stack Struct containing stack variables
+ * @return None
+ */
+void	ft_max(t_stacks *stack);
+
+/** Finds the mean of an array of numbers
+ * @param stack Struct containing stack variables
+ * @return None
+ */
 void	ft_mean(t_stacks *stack);
-void	ft_sort_best_pair(t_stacks *stack);
 
 /** Copies bytes from one memory area to another; the areas must not overlap
  * @param dest Pointer to the destination memory area
@@ -101,12 +117,6 @@ void	ft_sort_best_pair(t_stacks *stack);
  * @return Pointer to the destination memory area
  */
 void	*ft_memcpy(void *dest, const void *src, size_t n);
-
-/** Finds the min and max values in an array of integers
- * @param stack Struct containing stack variables
- * @return None
- */
-void	ft_min_max(t_stacks *stack);
 
 /** Calls relevant operation based on the argument passed
  * @param operation Expands to the relevant operation

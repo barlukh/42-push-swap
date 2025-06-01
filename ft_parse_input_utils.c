@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 14:43:55 by bgazur            #+#    #+#             */
-/*   Updated: 2025/05/29 09:23:57 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/01 09:31:07 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,26 @@ static int			ft_isdigit(int c);
 
 int	ft_check_arguments(char **argv, t_stacks *stack)
 {
-	size_t		i;
-	size_t		j;
 	long long	n;
 
-	i = 0;
-	while (i < stack->size_a)
+	stack->i = 0;
+	stack->j = 0;
+	while (stack->i < stack->size_a)
 	{
-		if (argv[i] == NULL || argv[i][0] == '\0')
+		if (argv[stack->i] == NULL || argv[stack->i][0] == '\0')
 			return (ERROR);
-		j = 0;
-		while (argv[i][j] != '\0')
+		while (argv[stack->i][stack->j] != '\0')
 		{
-			if (!ft_isdigit(argv[i][j]) && !(argv[i][j] == '-' && j == 0))
+			if (!ft_isdigit(argv[stack->i][stack->j])
+				&& !(argv[stack->i][stack->j] == '-' && stack->j == 0))
 				return (ERROR);
-			j++;
+			stack->j++;
 		}
-		n = ft_atoi(argv[i]);
+		n = ft_atoi(argv[stack->i]);
 		if (n > INT_MAX || n < INT_MIN)
 			return (ERROR);
-		stack->a[i] = (int)n;
-		i++;
+		stack->a[stack->i] = (int)n;
+		stack->i++;
 	}
 	if (ft_check_duplicates(stack) == ERROR)
 		return (ERROR);
@@ -47,14 +46,12 @@ int	ft_check_arguments(char **argv, t_stacks *stack)
 
 int	ft_end(int end_flag, char **argv, t_stacks *stack)
 {
-	size_t	i;
-
-	i = 0;
+	stack->i = 0;
 	if (end_flag == FREE_ARG_AB || end_flag == ERRFREE_ARG
 		|| end_flag == ERRFREE_ARG_A || end_flag == ERRFREE_ARG_AB)
 	{
-		while (argv[i] != NULL)
-			free(argv[i++]);
+		while (argv[stack->i] != NULL)
+			free(argv[stack->i++]);
 		free(argv);
 	}
 	if (end_flag == ERRFREE_A || end_flag == ERRFREE_ARG_A)
@@ -100,20 +97,18 @@ static long long	ft_atoi(const char *s)
 // Checks if there are no duplicates in the passed stack
 static int	ft_check_duplicates(t_stacks *stack)
 {
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	while (i < stack->size_a)
+	stack->i = 0;
+	stack->j = 0;
+	while (stack->i < stack->size_a)
 	{
-		j = i + 1;
-		while (j < stack->size_a)
+		stack->j = stack->i + 1;
+		while (stack->j < stack->size_a)
 		{
-			if (stack->a[i] == stack->a[j])
+			if (stack->a[stack->i] == stack->a[stack->j])
 				return (ERROR);
-			j++;
+			stack->j++;
 		}
-		i++;
+		stack->i++;
 	}
 	return (SUCCESS);
 }
