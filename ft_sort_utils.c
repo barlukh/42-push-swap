@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 09:17:45 by bgazur            #+#    #+#             */
-/*   Updated: 2025/06/01 19:44:23 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/02 08:26:48 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,17 @@ int	ft_is_sorted(t_stacks *stack)
 	return (TRUE);
 }
 
-void	ft_max(t_stacks *stack)
+void	ft_max_min(t_stacks *stack)
 {
 	stack->i = 0;
 	stack->max = stack->a[0];
+	stack->min = stack->a[0];
 	while (stack->i < stack->size_a)
 	{
 		if (stack->a[stack->i] > stack->max)
 			stack->max = stack->a[stack->i];
+		if (stack->a[stack->i] < stack->min)
+			stack->min = stack->a[stack->i];
 		stack->i++;
 	}
 }

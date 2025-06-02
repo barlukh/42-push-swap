@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/06/01 19:44:58 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/02 08:27:01 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_stacks
 	int		locked_num_a;
 	int		locked_num_b;
 	int		max;
+	int		min;
 	int		temp;
 	float	mean;
 	size_t	i;
@@ -97,11 +98,11 @@ int		ft_end(int end_flag, char **argv, t_stacks *stack);
  */
 int		ft_is_sorted(t_stacks *stack);
 
-/** Finds the max value in an array of numbers
+/** Finds the max and min values in an array of numbers
  * @param stack Struct containing stack variables
  * @return None
  */
-void	ft_max(t_stacks *stack);
+void	ft_max_min(t_stacks *stack);
 
 /** Finds the mean of an array of numbers
  * @param stack Struct containing stack variables
@@ -188,11 +189,17 @@ void	ft_ops_single_swap(int operation, t_stacks *stack);
  */
 int		ft_parse_input(t_args *arg, t_stacks *stack);
 
-/** Sorts a stack of integers in an ascending order
+/** Sorts a large stack of integers in an ascending order
  * @param stack Struct containing stack variables
  * @return None
  */
-void	ft_sort(t_stacks *stack);
+void	ft_sort_large(t_stacks *stack);
+
+/** Sorts a small stack of integers in an ascending order
+ * @param stack Struct containing stack variables
+ * @return None
+ */
+void	ft_sort_small(t_stacks *stack);
 
 /** Splits a string according to a specified delimiter
  * @param s String to split
