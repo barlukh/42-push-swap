@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 09:17:45 by bgazur            #+#    #+#             */
-/*   Updated: 2025/06/02 08:26:48 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/02 11:22:08 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_mean(t_stacks *stack)
 	stack->i = 0;
 	while (stack->i < stack->size_a)
 	{
-		stack->mean = stack->mean + stack->a[stack->i];
+		stack->mean = stack->mean + (double)stack->a[stack->i];
 		stack->i++;
 	}
 	stack->mean = stack->mean / stack->size_a;
