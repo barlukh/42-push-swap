@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/06/02 08:27:01 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/02 09:19:08 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,13 +193,7 @@ int		ft_parse_input(t_args *arg, t_stacks *stack);
  * @param stack Struct containing stack variables
  * @return None
  */
-void	ft_sort_large(t_stacks *stack);
-
-/** Sorts a small stack of integers in an ascending order
- * @param stack Struct containing stack variables
- * @return None
- */
-void	ft_sort_small(t_stacks *stack);
+void	ft_sort(t_stacks *stack);
 
 /** Splits a string according to a specified delimiter
  * @param s String to split
