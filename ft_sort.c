@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 10:49:14 by bgazur            #+#    #+#             */
-/*   Updated: 2025/06/02 08:35:28 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/02 11:20:48 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_find_best_pair(t_stacks *stack);
 static void	ft_lock_best_pair(t_stacks *stack);
 static void	ft_sort_best_pair(t_stacks *stack);
 
-void	ft_sort_large(t_stacks *stack)
+void	ft_sort(t_stacks *stack)
 {
 	while (stack->size_a > 3)
 	{
@@ -27,13 +27,17 @@ void	ft_sort_large(t_stacks *stack)
 			ft_ops_main(RA, stack);
 	}
 	ft_max_min(stack);
-	// inefficient sorting of 3 nums
-	while (!ft_is_sorted(stack))
+	if (!ft_is_sorted(stack))
 	{
-		if (stack->a[0] > stack->a[1] && stack->a[0] != stack->max)
-			ft_ops_main(SA, stack);
-		else
+		if (stack->a[0] == stack->min)
+		{
 			ft_ops_main(RA, stack);
+			ft_ops_main(SA, stack);
+		}
+		else if (stack->a[0] == stack->max && stack->a[2] == stack->min)
+			ft_ops_main(SA, stack);
+		else if (stack->a[1] == stack->min && stack->a[2] == stack->max)
+			ft_ops_main(SA, stack);
 	}
 	while (stack->size_b != 0)
 	{
@@ -41,20 +45,14 @@ void	ft_sort_large(t_stacks *stack)
 		ft_sort_best_pair(stack);
 	}
 	stack->i = 0;
-	while (stack->a[stack->i] != stack->min)
+	while (stack->a[stack->i] != stack->max)
 		stack->i++;
 	if (stack->i < (stack->size_a - stack->i))
 		stack->dir_a = RA;
 	else
 		stack->dir_a = RRA;
-	while (stack->a[0] != stack->min)
+	while (stack->a[stack->size_a - 1] != stack->max)
 		ft_ops_main(stack->dir_a, stack);
-}
-
-void	ft_sort_small(t_stacks *stack)
-{
-	stack->size_a = 5;
-	write(1, "a", 1);
 }
 
 // Finds the best pair of numbers to move
@@ -63,7 +61,7 @@ static void	ft_find_best_pair(t_stacks *stack)
 	stack->i = 0;
 	while (stack->i < stack->size_b)
 	{
-		stack->diff_min = INT_MAX;
+		stack->diff_min = LLONG_MAX;
 		stack->j = 0;
 		while (stack->j < stack->size_a)
 		{
