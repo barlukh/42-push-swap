@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 10:49:14 by bgazur            #+#    #+#             */
-/*   Updated: 2025/06/02 11:20:48 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/02 14:21:08 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	ft_find_best_pair(t_stacks *stack);
 static void	ft_lock_best_pair(t_stacks *stack);
 static void	ft_sort_best_pair(t_stacks *stack);
+static void	ft_sort_three(t_stacks *stack);
 
 void	ft_sort(t_stacks *stack)
 {
@@ -26,32 +27,21 @@ void	ft_sort(t_stacks *stack)
 		else
 			ft_ops_main(RA, stack);
 	}
-	ft_max_min(stack);
-	if (!ft_is_sorted(stack))
-	{
-		if (stack->a[0] == stack->min)
-		{
-			ft_ops_main(RA, stack);
-			ft_ops_main(SA, stack);
-		}
-		else if (stack->a[0] == stack->max && stack->a[2] == stack->min)
-			ft_ops_main(SA, stack);
-		else if (stack->a[1] == stack->min && stack->a[2] == stack->max)
-			ft_ops_main(SA, stack);
-	}
+	ft_sort_three(stack);
 	while (stack->size_b != 0)
 	{
 		ft_find_best_pair(stack);
 		ft_sort_best_pair(stack);
 	}
+	ft_max_min(stack);
 	stack->i = 0;
-	while (stack->a[stack->i] != stack->max)
+	while (stack->a[stack->i] != stack->min)
 		stack->i++;
 	if (stack->i < (stack->size_a - stack->i))
 		stack->dir_a = RA;
 	else
 		stack->dir_a = RRA;
-	while (stack->a[stack->size_a - 1] != stack->max)
+	while (stack->a[0] != stack->min)
 		ft_ops_main(stack->dir_a, stack);
 }
 
@@ -65,7 +55,8 @@ static void	ft_find_best_pair(t_stacks *stack)
 		stack->j = 0;
 		while (stack->j < stack->size_a)
 		{
-			stack->diff = stack->a[stack->j] - stack->b[stack->i];
+			stack->diff = (long long)stack->a[stack->j]
+				- (long long)stack->b[stack->i];
 			if (stack->diff > 0 && stack->diff < stack->diff_min)
 			{
 				stack->locked_pos_a = stack->j;
@@ -113,4 +104,22 @@ static void	ft_sort_best_pair(t_stacks *stack)
 			ft_ops_main(stack->locked_dir_b, stack);
 	}
 	ft_ops_main(PA, stack);
+}
+
+// Checks and sorts the largest three values left in the stack 'a'
+static void	ft_sort_three(t_stacks *stack)
+{
+	ft_max_min(stack);
+	if (!ft_is_sorted(stack))
+	{
+		if (stack->a[0] == stack->min)
+		{
+			ft_ops_main(RA, stack);
+			ft_ops_main(SA, stack);
+		}
+		else if (stack->a[0] == stack->max && stack->a[2] == stack->min)
+			ft_ops_main(SA, stack);
+		else if (stack->a[1] == stack->min && stack->a[2] == stack->max)
+			ft_ops_main(SA, stack);
+	}
 }
