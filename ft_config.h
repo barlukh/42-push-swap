@@ -6,7 +6,7 @@
 /*   By: bgazur <bgazur@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:53:58 by bgazur            #+#    #+#             */
-/*   Updated: 2025/06/02 09:19:08 by bgazur           ###   ########.fr       */
+/*   Updated: 2025/06/02 11:21:58 by bgazur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,29 +52,29 @@ typedef struct s_args
 
 typedef struct s_stacks
 {
-	int		*a;
-	int		*b;
-	int		cost_a;
-	int		cost_b;
-	int		cost_total;
-	int		diff;
-	int		diff_min;
-	int		dir_a;
-	int		dir_b;
-	int		locked_dir_a;
-	int		locked_dir_b;
-	int		locked_num_a;
-	int		locked_num_b;
-	int		max;
-	int		min;
-	int		temp;
-	float	mean;
-	size_t	i;
-	size_t	j;
-	size_t	locked_pos_a;
-	size_t	locked_pos_b;
-	size_t	size_a;
-	size_t	size_b;
+	int			*a;
+	int			*b;
+	int			cost_a;
+	int			cost_b;
+	int			cost_total;
+	long long	diff;
+	long long	diff_min;
+	int			dir_a;
+	int			dir_b;
+	int			locked_dir_a;
+	int			locked_dir_b;
+	int			locked_num_a;
+	int			locked_num_b;
+	int			max;
+	int			min;
+	int			temp;
+	double		mean;
+	size_t		i;
+	size_t		j;
+	size_t		locked_pos_a;
+	size_t		locked_pos_b;
+	size_t		size_a;
+	size_t		size_b;
 }	t_stacks;
 
 /** Checks if passed arguments are valid integers
